@@ -3,8 +3,6 @@ import MenuModal from '@/components/MenuModal/MenuModal';
 import styles from './Header.module.scss';
 import { HiMenuAlt1, HiOutlineDotsVertical } from 'react-icons/hi';
 import SettingsModal from '@/components/Settings/SettingsModal';
-import { useSelector } from 'react-redux';
-import { firebaseSelector } from '@/components/redux/selectors';
 import UserInfoModal from '@/components/UserInfoModal/UserInfoModal';
 import Image from '@/components/shared/Image/Image';
 import useGetUserFirebase from '@/hooks/useGetUserFirebase';

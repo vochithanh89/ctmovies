@@ -19,7 +19,7 @@ function useGetFirestore(collectionString, condition, sort) {
             setData(data);
         });
         return () => unsubcribed();
-    }, []);
+    }, [collectionString, condition, sort]);
 
     return data;
 }

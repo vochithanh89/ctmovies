@@ -2,8 +2,6 @@ import Modal from '../shared/Modal/Modal';
 import styles from './UserInfoModal.module.scss';
 import useModal from '@/hooks/useModal';
 import { useEffect, useRef } from 'react';
-import { useSelector } from 'react-redux';
-import { firebaseSelector } from '../redux/selectors';
 import Image from '../shared/Image/Image';
 import useGetUserFirebase from '@/hooks/useGetUserFirebase';
 import { signOut } from 'firebase/auth';
