@@ -5,7 +5,7 @@
     "dependencies": {
         "@reduxjs/toolkit": "^1.8.3",
         "@testing-library/jest-dom": "^5.16.4",
-        "@testing-library/react": "^13.3.0",
+        "@testing-library/react": "^12.1.5",
         "@testing-library/user-event": "^13.5.0",
         "axios": "^0.27.2",
         "clsx": "^1.1.1",
@@ -23,8 +23,7 @@
         "react-scripts": "5.0.1",
         "react-select": "^5.4.0",
         "sass": "^1.53.0",
-        "swiper": "^8.2.6",
-        "web-vitals": "^2.1.4"
+        "swiper": "^8.2.6"
     },
     "scripts": {
         "start": "react-app-rewired start",
@@ -53,6 +52,7 @@
     "devDependencies": {
         "babel-plugin-module-resolver": "^4.1.0",
         "customize-cra": "^1.0.0",
-        "react-app-rewired": "^2.2.1"
+        "react-app-rewired": "^2.2.1",
+        "web-vitals": "^2.1.4"
     }
 }
