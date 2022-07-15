@@ -1,0 +1,55 @@
+@import '../styles/variables';
+@import '../styles/mixin';
+
+.loginModal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 4rem 3.2rem;
+    border-radius: $rounded-lg;
+    transform: translate(-50%, -50%);
+    background-color: $backgroundColor1;
+    width: 40rem;
+    height: 60rem;
+    @include mobile {
+        width: 80vw;
+        height: 60vh;
+    }
+
+    .title {
+        text-align: center;
+        font-size: 2.4rem;
+    }
+}
+.loginPlace {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3.2em;
+    .loginBtn {
+        display: flex;
+        align-items: center;
+        padding: 0.4rem;
+        border-radius: $rounded-full;
+        color: $textColor1;
+        background-color: $backgroundColor2;
+
+        & ~ .loginBtn {
+            margin-top: 1.6rem;
+        }
+
+        .loginLogo {
+            display: flex;
+            margin-right: 1.6rem;
+            padding: 0.8rem;
+            border-radius: 50%;
+            background-color: $backgroundColor4;
+            img {
+                width: 2.4rem;
+            }
+        }
+
+        .loginText {
+            text-align: left;
+        }
+    }
+}

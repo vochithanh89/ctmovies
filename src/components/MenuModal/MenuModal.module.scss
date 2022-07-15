@@ -1,0 +1,77 @@
+@import '../styles/variables';
+@import '../styles/mixin';
+
+.menuModal {
+    position: absolute;
+    top: 0;
+    right: 40%;
+    bottom: 0;
+    left: 0;
+    padding: 4rem 0 4rem 2rem;
+    transform: translateX(-100%);
+    background-color: $backgroundColor1;
+    transition: $transition6;
+
+    &.isOpen {
+        transform: translateX(0);
+    }
+
+    .title {
+        margin-bottom: 3.2rem;
+        font-size: 2rem;
+    }
+}
+
+.menu {
+    .login {
+        margin-bottom: 3.2rem;
+        text-align: center;
+
+        .avatar {
+            width: 8rem;
+            height: 8rem;
+            border-radius: $rounded-full;
+        }
+
+        .logBtn {
+            display: flex;
+            align-items: center;
+            margin: auto;
+            color: $primaryColor;
+            .icon {
+                margin-right: 0.4rem;
+            }
+        }
+
+        .text {
+            color: $textColor2;
+            font-size: 1.4rem;
+        }
+    }
+
+    .menuItem {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        border-right: solid 0.4rem transparent;
+        transition: $transition2;
+
+        & ~ .menuItem {
+            margin-top: 1.6rem;
+        }
+
+        &.active {
+            color: $primaryColor;
+            border-color: $primaryColor;
+        }
+
+        .icon {
+            font-size: 2rem;
+            margin-right: 0.8rem;
+        }
+
+        .text {
+            font-size: 1.8rem;
+        }
+    }
+}

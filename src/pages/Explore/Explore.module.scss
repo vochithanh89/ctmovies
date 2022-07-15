@@ -1,0 +1,40 @@
+@import '../../components/styles/mixin';
+@import '../../components/styles/variables';
+
+.explore {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 4rem 4rem 2rem 4rem;
+    border-top-left-radius: $rounded-xl;
+    background-color: $backgroundColor2;
+    @include mobile {
+        padding: 1.6rem 0;
+        background-color: transparent;
+    }
+}
+
+.actions {
+    display: flex;
+    margin-bottom: 1.6rem;
+
+    .actionBtn {
+        color: $textColor1;
+        border-bottom: solid 0.2rem transparent;
+
+        &.active {
+            color: $primaryColor;
+            border-color: $primaryColor;
+        }
+
+        & ~ .actionBtn {
+            margin-left: 1.6rem;
+        }
+    }
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1.6rem;
+}

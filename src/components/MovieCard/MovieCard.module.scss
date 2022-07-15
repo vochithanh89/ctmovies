@@ -1,0 +1,49 @@
+@import '../styles/mixin';
+@import '../styles/variables';
+
+.movieCard {
+    display: flex;
+    flex-direction: column;
+    &.default {
+        width: calc(100% / 6);
+        padding: 0.8rem;
+
+        @include tablet {
+            width: calc(100% / 4);
+        }
+
+        @include mobile {
+            width: calc(100% / 2);
+        }
+    }
+
+    .detailPath {
+        transition: $transition2;
+        .poster {
+            width: 100%;
+            border-radius: $rounded-sm;
+            transition: $transition2;
+        }
+
+        .movieName {
+            margin-top: 0.4rem;
+            text-align: center;
+
+            @include lineClamp(2);
+        }
+    }
+
+    & .detailPath:hover .poster {
+        filter: brightness(0.8);
+    }
+
+    & .detailPath:hover .movieName {
+        color: $primaryColor;
+    }
+
+    .episodeName {
+        text-align: center;
+        font-size: 1.4rem;
+        color: $textColor2;
+    }
+}

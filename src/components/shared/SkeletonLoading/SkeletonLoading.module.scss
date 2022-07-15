@@ -1,0 +1,37 @@
+@import '../../styles/mixin';
+@import '../../styles/variables';
+
+.skeletonWrap {
+    width: 100%;
+    & ~ .skeletonWrap {
+        margin-top: 0.8rem;
+    }
+}
+
+.skeleton {
+    position: relative;
+    background-color: $skeletonHighlight;
+    border-radius: $rounded-sm;
+    overflow: hidden;
+    & ~ .skeleton {
+        margin-top: 0.8rem;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-color: $skeletonBase;
+        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}

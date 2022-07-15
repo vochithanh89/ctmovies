@@ -1,0 +1,214 @@
+@import '../styles/variables';
+@import '../styles/mixin';
+
+.comments {
+    min-height: 60rem;
+    .title {
+        margin-bottom: 1.6rem;
+        font-size: 2rem;
+        font-weight: 600;
+    }
+}
+
+.userAvatar {
+    width: 4rem;
+    height: 4rem;
+    margin-right: 0.8rem;
+    border-radius: $rounded-full;
+}
+
+.commentForm {
+    display: flex;
+
+    .commentInput {
+        flex: 1;
+        min-width: 200px;
+        padding: 0.8rem 1.6rem;
+        border-radius: 2.4rem;
+        border: 2px solid $backgroundColor3;
+        color: $textColor1;
+        outline: none;
+        background-color: transparent;
+        cursor: text;
+        &:empty:before {
+            content: attr(placeholder);
+            color: $textColor2;
+        }
+    }
+
+    .noLoginText {
+        flex: 1;
+        padding: 0.8rem 1.6rem;
+        border-radius: $rounded-full;
+        border: 2px solid $backgroundColor4;
+        color: $textColor2;
+        .loginBtn {
+            color: $primaryColor;
+        }
+    }
+}
+
+.commentLength {
+    margin: 0.8rem 0;
+    text-align: right;
+    transition: $transition2;
+
+    &.warning span {
+        color: $warningColor;
+    }
+
+    &.notice span {
+        color: $noticeColor;
+    }
+
+    span {
+        font-size: 1.4rem;
+        color: $textColor2;
+    }
+}
+
+.commentFormActions {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 -0.8rem;
+
+    .emojiPickerWrap {
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        .emojiPicker {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            z-index: 1;
+        }
+    }
+
+    .actionBtn {
+        display: flex;
+        align-items: center;
+        margin: 0 0.8rem;
+        border-radius: $rounded-sm;
+        color: $textColor1;
+        transition: $transition2;
+
+        svg {
+            font-size: 2rem;
+        }
+
+        &.sendBtn {
+            padding: 0.8rem 1.2rem;
+            background-color: $primaryColor;
+            &:disabled {
+                background-color: $textColor2;
+                cursor: default;
+            }
+        }
+    }
+}
+
+.messageNoComment {
+    margin: 1.6rem;
+    text-align: center;
+}
+
+.commentList {
+    margin-top: 3.2rem;
+
+    .commentItem {
+        display: flex;
+        animation: translateY 0.2s ease-in-out;
+        & ~ .commentItem {
+            margin-top: 2rem;
+        }
+
+        .commentDetails {
+            flex: 1;
+            .info {
+                display: flex;
+                align-items: center;
+                .userName {
+                    font-size: 1.4rem;
+                    font-weight: 600;
+                    margin-right: 0.8rem;
+                }
+                .time {
+                    font-size: 1.4rem;
+                    color: $textColor2;
+                }
+            }
+
+            .commentContent {
+                margin: 0.4rem 0 0.8rem 0;
+                word-break: break-all;
+            }
+
+            .commentActions {
+                display: flex;
+                margin-top: 0.4rem;
+                .actionBtn {
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    color: $textColor1;
+
+                    button {
+                        color: $textColor1;
+                    }
+
+                    svg {
+                        font-size: 1.8rem;
+                    }
+
+                    & ~ .actionBtn {
+                        margin-left: 0.8rem;
+                    }
+
+                    .commentMenu {
+                        position: absolute;
+                        bottom: 0;
+                        left: 120%;
+                        display: flex;
+                        flex-direction: column;
+                        padding: 0.4rem 0;
+                        border-radius: 0.4rem;
+                        background-color: $backgroundColor3;
+                        box-shadow: $shadow;
+                        overflow: hidden;
+
+                        .commentMenuBtn {
+                            display: flex;
+                            align-items: center;
+                            padding: 0.4rem 1.2rem;
+                            color: $textColor1;
+                            transition: $transition2;
+
+                            svg {
+                                margin-right: 0.4rem;
+                            }
+
+                            &:hover {
+                                background: $backgroundColor4;
+                            }
+                        }
+                    }
+                }
+                .count {
+                    margin-left: 0.4rem;
+                    font-size: 1.2rem;
+                    color: $textColor2;
+                }
+            }
+        }
+    }
+}
+
+@keyframes translateY {
+    from {
+        transform: translateY(-4rem);
+    }
+    to {
+        transform: translateY(0);
+    }
+}

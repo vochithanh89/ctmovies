@@ -1,0 +1,30 @@
+@import '../../components/styles/mixin';
+@import '../../components/styles/variables';
+
+.home {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 4rem;
+    border-top-left-radius: $rounded-xl;
+    background-color: $backgroundColor2;
+
+    @include mobile {
+        padding: 1.6rem 0;
+        background-color: transparent;
+    }
+}
+.swiperWrap {
+    .title {
+        font-size: 2rem;
+        margin-bottom: 1.6rem;
+    }
+    .swiper {
+        width: 100%;
+        border-radius: $rounded-sm;
+    }
+
+    & ~ .swiperWrap {
+        margin-top: 3.2rem;
+    }
+}

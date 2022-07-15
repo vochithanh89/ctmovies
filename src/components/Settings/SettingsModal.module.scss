@@ -1,0 +1,72 @@
+@import '../styles/variables';
+@import '../styles/mixin';
+
+.settings {
+    position: relative;
+}
+
+.menu {
+    position: absolute;
+    top: calc($headerHeight - 0.4rem);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 20rem;
+    transform: translateX(-100%);
+    padding: 0.8rem 0;
+    border-radius: $rounded-sm;
+    box-shadow: $shadow;
+    background-color: $backgroundColor2;
+
+    .menuHeader {
+        position: relative;
+        width: 100%;
+        padding: 0.8rem 0;
+        border-bottom: 3px solid $backgroundColor3;
+
+        .menuTitle {
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .backBtn {
+            position: absolute;
+            left: 1.6rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            color: $textColor1;
+            svg {
+                font-size: 2rem;
+            }
+        }
+    }
+
+    .menuList {
+        width: 100%;
+        max-height: 40rem;
+        @include scrollbar-overlay;
+
+        .menuItem {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 0.8rem 1.6rem;
+            color: $textColor1;
+            transition: $transition2;
+
+            &.selected {
+                background-color: $backgroundColor3;
+            }
+
+            &:hover {
+                background-color: $backgroundColor3;
+            }
+
+            svg {
+                margin-right: 0.4rem;
+            }
+        }
+    }
+}

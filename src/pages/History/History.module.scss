@@ -1,0 +1,65 @@
+@import '../../components/styles/mixin';
+@import '../../components/styles/variables';
+
+.history {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 4rem 4rem 2rem 4rem;
+    border-top-left-radius: $rounded-xl;
+    background-color: $backgroundColor2;
+
+    @include mobile {
+        padding: 1.6rem 0;
+        background-color: transparent;
+    }
+
+    .title {
+        font-size: 2rem;
+        color: $textColor1;
+    }
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1.6rem;
+    .clearBtn {
+        display: flex;
+        align-items: center;
+        font-size: 1.8rem;
+        color: $primaryColor;
+        transition: $transition2;
+
+        &:hover {
+            color: $noticeColor;
+        }
+
+        &:disabled {
+            color: $textColor2;
+            cursor: default;
+        }
+
+        .icon {
+            margin-right: 0.4rem;
+        }
+    }
+}
+
+.textContainer {
+    text-align: center;
+
+    .noHistoryText {
+        font-size: 2.2rem;
+        color: $textColor2;
+    }
+
+    .watchNowText {
+        font-size: 2.2rem;
+        color: $textColor1;
+        transition: $transition2;
+        &:hover {
+            color: $primaryColor;
+        }
+    }
+}

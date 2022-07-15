@@ -1,0 +1,39 @@
+@import '../components/styles/variables';
+@import '../components/styles/mixin';
+
+.layoutWrap {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: $backgroundColor1;
+}
+
+.mainLayout {
+    flex: 1;
+}
+
+.mainLayoutContents {
+    width: 65%;
+    display: flex;
+
+    @include tablet {
+        width: 92%;
+    }
+
+    @include mobile {
+        width: 100%;
+    }
+}
+
+.withLeftbarContents {
+    width: 85%;
+    display: flex;
+
+    @include tablet {
+        width: 92%;
+    }
+
+    @include mobile {
+        width: 100%;
+    }
+}

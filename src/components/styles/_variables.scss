@@ -1,0 +1,49 @@
+$mobile-width: 768px;
+$tablet-width: 1024px;
+
+$maxWidthM: 1400px;
+$maxWidthS: 720px;
+$maxWidthXS: 540px;
+
+$headerHeight: 6rem;
+
+$primaryColor: cornflowerblue;
+$backgroundColor0: rgb(0, 0, 0);
+$backgroundColor1: rgb(15, 17, 21);
+$backgroundColor2: rgb(25, 24, 31);
+$backgroundColor3: rgb(34, 33, 40);
+$backgroundColor4: rgb(41, 40, 49);
+$textColor1: white;
+$textColor2: rgb(117, 116, 120);
+$noticeColor: #cc234e;
+$warningColor: #f07c16;
+
+$skeletonHighlight: #292831;
+$skeletonBase: rgb(15, 17, 21);
+
+$shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+$backgroundGradientColor: linear-gradient(rgba(0, 0, 0, 0.3), $backgroundColor1 90%);
+$sliderGradientColor: linear-gradient(rgba(0, 0, 0, 0), $backgroundColor1 90%);
+
+$rounded-sm: 0.8rem;
+$rounded-md: 1.6rem;
+$rounded-lg: 2rem;
+$rounded-xl: 2.4rem;
+
+$rounded-full: 99999rem;
+
+$transition2: all 0.2s ease;
+$transition6: all 0.6s ease;
+
+:export {
+    skeletonHighlight: $skeletonHighlight;
+    skeletonBase: $skeletonBase;
+    backgroundColor0: $backgroundColor0;
+    backgroundColor1: $backgroundColor1;
+    backgroundColor2: $backgroundColor2;
+    backgroundColor3: $backgroundColor3;
+    backgroundColor4: $backgroundColor4;
+    textColor1: $textColor1;
+    textColor2: $textColor2;
+}

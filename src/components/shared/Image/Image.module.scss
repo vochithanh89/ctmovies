@@ -1,0 +1,20 @@
+.image {
+    object-fit: cover;
+    aspect-ratio: 10/16;
+    animation: fade 0.3s ease-in;
+}
+
+.image.br {
+    aspect-ratio: 16/10;
+}
+
+@keyframes fade {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

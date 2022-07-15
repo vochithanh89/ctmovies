@@ -1,0 +1,45 @@
+@import '../styles/mixin';
+@import '../styles/variables';
+
+.sliderCard {
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    padding: 2rem;
+    border-radius: $rounded-sm;
+    aspect-ratio: 16/8;
+    background-position: center;
+    background-size: cover;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: $sliderGradientColor;
+    }
+
+    .info {
+        z-index: 1;
+
+        .background {
+            width: 100%;
+            height: 100%;
+        }
+
+        .movieName {
+            font-size: 2.4rem;
+            @include lineClamp(2);
+        }
+
+        .description {
+            color: $textColor2;
+            @include lineClamp(5);
+            @include mobile {
+                display: none;
+            }
+        }
+    }
+}

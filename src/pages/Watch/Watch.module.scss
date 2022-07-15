@@ -1,0 +1,79 @@
+@import '../../components/styles/mixin';
+@import '../../components/styles/variables';
+
+.watch {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.watchPlace {
+    width: 80%;
+    padding: 2rem;
+    border-top-left-radius: $rounded-xl;
+    background-color: $backgroundColor2;
+
+    @include tablet {
+        width: 70%;
+    }
+
+    @include mobile {
+        width: 100%;
+        padding: 0;
+        padding-top: calc($headerHeight/2);
+        border-top-left-radius: none;
+        background-color: transparent;
+    }
+
+    .watchIframe {
+        width: 100%;
+        border: none;
+        border-radius: $rounded-sm;
+        aspect-ratio: 16/9;
+
+        &.hide {
+            display: none;
+        }
+    }
+
+    .details {
+        margin-top: 1.6rem;
+        .movieName {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1.6rem;
+        }
+
+        .otherDetail {
+            color: $textColor2;
+            margin-bottom: 1.6rem;
+        }
+
+        .overview {
+            color: $textColor2;
+            margin-bottom: 1.6rem;
+        }
+    }
+
+    .comments {
+        width: 100%;
+    }
+}
+
+.rightSidebar {
+    width: 20%;
+
+    @include tablet {
+        width: 30%;
+    }
+
+    position: sticky;
+    top: $headerHeight;
+    max-height: calc(100vh - $headerHeight);
+    background-color: $backgroundColor3;
+
+    @include mobile {
+        width: 100%;
+        background-color: transparent;
+    }
+}

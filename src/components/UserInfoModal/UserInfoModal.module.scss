@@ -1,0 +1,53 @@
+@import '../styles/variables';
+@import '../styles/mixin';
+
+.userInfoModal {
+    position: absolute;
+    top: calc($headerHeight - 0.4rem);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 28rem;
+    transform: translateX(-100%);
+    padding: 0.8rem 0;
+    border-radius: $rounded-sm;
+    box-shadow: $shadow;
+    background-color: $backgroundColor2;
+}
+
+.userInfo {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0.8rem;
+    border-bottom: 2px solid $backgroundColor3;
+    .userImg {
+        margin-right: 1.6rem;
+        width: 6.4rem;
+        height: 6.4rem;
+        border-radius: $rounded-full;
+    }
+    .userDetails {
+        flex: 1;
+        min-width: 1rem;
+        .userEmail {
+            color: $textColor2;
+            font-size: 1.4rem;
+        }
+    }
+}
+
+.menu {
+    width: 100%;
+
+    .menuItem {
+        width: 100%;
+        padding: 0.8rem 1.6rem;
+        text-align: left;
+        color: $textColor1;
+
+        &:hover {
+            background-color: $backgroundColor3;
+        }
+    }
+}

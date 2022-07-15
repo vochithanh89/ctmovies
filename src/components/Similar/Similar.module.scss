@@ -1,0 +1,63 @@
+@import '../../components/styles/mixin';
+@import '../../components/styles/variables';
+
+.similar {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-top: 2rem;
+
+    .title {
+        margin-bottom: 2rem;
+        padding-left: 2rem;
+        font-size: 2rem;
+        @include mobile {
+            padding: 0;
+        }
+    }
+
+    .similarList {
+        flex: 1;
+        padding: 0 2rem;
+        @include mobile {
+            padding: 0;
+        }
+
+        @include scrollbar-overlay-hide;
+
+        .similarItem {
+            display: flex;
+            max-height: 12.4rem;
+            margin-bottom: 1.6rem;
+            padding: 0.8rem;
+            border-radius: 0.4rem;
+
+            &.selected {
+                background-color: $backgroundColor4;
+            }
+
+            .poster {
+                width: 30%;
+                border-radius: 0.4rem;
+                @include mobile {
+                    width: 20%;
+                }
+            }
+            .details {
+                flex: 1;
+                margin-left: 1.6rem;
+                text-align: left;
+
+                .movieName {
+                    color: $textColor1;
+                    @include lineClamp(1);
+                }
+                .otherDetail {
+                    font-size: 1.4rem;
+                    color: $textColor2;
+                    @include lineClamp(1);
+                }
+            }
+        }
+    }
+}

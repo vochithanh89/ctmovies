@@ -1,0 +1,75 @@
+@import './variables';
+
+@mixin mobile {
+    @media (max-width: #{$mobile-width - 1px}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (max-width: #{$tablet-width - 1px}) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: #{$tablet-width}) {
+        @content;
+    }
+}
+
+@mixin title {
+    display: inline-block;
+}
+
+@mixin scrollbar-overlay {
+    overflow: overlay;
+
+    &::-webkit-scrollbar {
+        width: 1rem !important;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: rgba(60, 60, 60, 0.5);
+        border-radius: 999999px;
+    }
+}
+
+@mixin scrollbar-overlay-hide {
+    overflow: overlay;
+
+    &::-webkit-scrollbar {
+        width: 0;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: rgba(60, 60, 60, 0.5);
+        border-radius: 999999px;
+    }
+
+    &:hover::-webkit-scrollbar {
+        width: 1rem;
+    }
+}
+
+@mixin scrollbar {
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+        width: 1rem !important;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: rgba(60, 60, 60, 0.5);
+        border-radius: 999999px;
+    }
+}
+
+@mixin lineClamp($line) {
+    -webkit-line-clamp: $line;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: pre-wrap;
+}

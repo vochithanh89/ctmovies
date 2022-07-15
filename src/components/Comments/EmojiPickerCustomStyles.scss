@@ -1,0 +1,23 @@
+@import '../styles/variables';
+@import '../styles/mixin';
+
+.emoji-scroll-wrapper {
+    overflow-x: hidden !important;
+    background-color: $backgroundColor2;
+    @include scrollbar-overlay;
+}
+
+.emoji-picker-react {
+    border: 1px solid $backgroundColor1 !important;
+    box-shadow: $shadow !important;
+    background-color: transparent !important;
+}
+
+.emoji-picker-react .emoji-group:before {
+    background-color: $backgroundColor2 !important;
+    width: 100%;
+}
+
+.emoji-categories {
+    background-color: $backgroundColor4;
+}

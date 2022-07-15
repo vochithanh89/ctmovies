@@ -1,0 +1,63 @@
+@import '../../../components/styles/variables';
+@import '../../../components/styles/mixin';
+
+.leftSidebar {
+    position: sticky;
+    top: $headerHeight;
+    width: 15%;
+    padding: 4rem 0;
+    height: calc(100vh - $headerHeight);
+
+    @include tablet {
+        width: 8%;
+    }
+
+    @include mobile {
+        display: none;
+    }
+
+    .title {
+        margin-bottom: 3.2rem;
+        font-size: 2rem;
+        @include tablet {
+            display: none;
+        }
+    }
+}
+
+.menu {
+    .menuItem {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        border-right: solid 0.4rem transparent;
+        transition: $transition2;
+
+        & ~ .menuItem {
+            margin-top: 1.6rem;
+            @include tablet {
+                margin-top: 2rem;
+            }
+        }
+
+        &.active {
+            color: $primaryColor;
+            border-color: $primaryColor;
+        }
+
+        .icon {
+            font-size: 2rem;
+            margin-right: 0.8rem;
+            @include tablet {
+                font-size: 2.8rem;
+            }
+        }
+
+        .text {
+            font-size: 1.8rem;
+            @include tablet {
+                display: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,10 @@
+@import '../styles/mixin';
+@import '../styles/variables';
+
+.container {
+    display: flex;
+    margin: auto;
+    padding: 0 2rem;
+    max-width: $maxWidthM;
+    height: 100%;
+}

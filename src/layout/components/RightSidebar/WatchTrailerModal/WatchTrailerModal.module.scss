@@ -1,0 +1,20 @@
+@import '../../../../components/styles/mixin';
+@import '../../../../components/styles/variables';
+
+.watchTrailerModal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    .modalIframe {
+        display: block;
+        width: 60vw !important;
+        aspect-ratio: 16/9;
+        &.hide {
+            //fix thumnail blur (error when set display: none)
+            width: 0;
+            height: 0;
+        }
+    }
+}
