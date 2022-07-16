@@ -96,3 +96,7 @@ export const languages = [
         action: 'languageChange',
     },
 ];
+
+export const siteName = 'CTMovies';
+export const title = 'Newst Movies TV Shows Watching';
+export const slogan = 'Watch free Movies, TV Shows, Animes';

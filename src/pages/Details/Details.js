@@ -1,4 +1,4 @@
-import { imgUrl, imgUrlFull } from '@/components/constants/constants';
+import { imgUrl, imgUrlFull, siteName, slogan, title } from '@/components/constants/constants';
 import Container from '@/components/Container/Container';
 import { settingsSelector } from '@/components/redux/selectors';
 import Image from '@/components/shared/Image/Image';
@@ -12,6 +12,7 @@ import { MdSignalWifiStatusbarNull, MdOutlineCalendarToday, MdStarOutline } from
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import styles from './Details.module.scss';
 import ImageLazy from '@/components/shared/Image/ImageLazy';
+import { Helmet } from 'react-helmet';
 
 function Details() {
     const navigate = useNavigate();
@@ -111,38 +112,49 @@ function Details() {
     };
 
     return (
-        <div className={styles.detailsWrap}>
-            <div
-                style={{
-                    backgroundImage: `url('${data && imgUrlFull(data.backdrop_path)}')`,
-                }}
-                className={styles.details}
-            >
-                {isLoading && renderSkeletonLoading()}
-                {isSuccess && renderDetails()}
+        <>
+            <Helmet>
+                <title>{movieName ? `${movieName} - ${title}` : title}</title>
+                <meta name="description" content={slogan} />
+                <meta property="og:title" content={movieName ? `${movieName} - ${title}` : title} />
+                <meta property="og:image" content={imgUrlFull(data?.poster_path)} />
+                <meta property="og:site_name" content={siteName} />
+                <meta property="og:url" content={window.location.href} />
+                <meta property="og:description" content={slogan} />
+            </Helmet>
+            <div className={styles.detailsWrap}>
+                <div
+                    style={{
+                        backgroundImage: `url('${data && imgUrlFull(data.backdrop_path)}')`,
+                    }}
+                    className={styles.details}
+                >
+                    {isLoading && renderSkeletonLoading()}
+                    {isSuccess && renderDetails()}
+                </div>
+                <div className={styles.casts}>
+                    <Container>
+                        <div className={styles.castsContainer}>
+                            <h2 className={styles.castTitle}>Cast</h2>
+                            <ul className={styles.castList}>
+                                {data?.credits.cast.map((cast) => {
+                                    return (
+                                        <li className={styles.cast} key={cast.id}>
+                                            <ImageLazy
+                                                className={styles.castPoster}
+                                                src={imgUrl(cast.profile_path)}
+                                                alt={cast.name || cast.original_name}
+                                            />
+                                            <h2 className={styles.castName}>{cast.name || cast.original_name}</h2>
+                                        </li>
+                                    );
+                                })}
+                            </ul>
+                        </div>
+                    </Container>
+                </div>
             </div>
-            <div className={styles.casts}>
-                <Container>
-                    <div className={styles.castsContainer}>
-                        <h2 className={styles.castTitle}>Cast</h2>
-                        <ul className={styles.castList}>
-                            {data?.credits.cast.map((cast) => {
-                                return (
-                                    <li className={styles.cast} key={cast.id}>
-                                        <ImageLazy
-                                            className={styles.castPoster}
-                                            src={imgUrl(cast.profile_path)}
-                                            alt={cast.name || cast.original_name}
-                                        />
-                                        <h2 className={styles.castName}>{cast.name || cast.original_name}</h2>
-                                    </li>
-                                );
-                            })}
-                        </ul>
-                    </div>
-                </Container>
-            </div>
-        </div>
+        </>
     );
 }
 

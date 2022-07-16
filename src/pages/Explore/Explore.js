@@ -14,6 +14,9 @@ import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 import MovieListInfinite from '@/components/MovieListInfinite/MovieListInfinite';
 import { filtersSlice } from '@/components/redux/filtersSlice';
+import { Helmet } from 'react-helmet';
+import { siteName, slogan, title } from '@/components/constants/constants';
+import exploreImg from '@/assets/images/SEO/explore.jpg';
 
 function Explore() {
     const dispatch = useDispatch(filtersSlice);
@@ -55,60 +58,71 @@ function Explore() {
     }
 
     return (
-        <div className={styles.explore}>
-            <div className={styles.actions}>
-                <button
-                    onClick={() => handleMediaTypeChange('movie')}
-                    className={clsx(styles.actionBtn, {
-                        [styles.active]: mediaType === 'movie',
-                    })}
-                >
-                    Movies
-                </button>
-                <button
-                    onClick={() => handleMediaTypeChange('tv')}
-                    className={clsx(styles.actionBtn, {
-                        [styles.active]: mediaType === 'tv',
-                    })}
-                >
-                    TV Show
-                </button>
-            </div>
-            {filtersData && (
-                <div className={styles.filters}>
-                    <Select
-                        isSearchable={false}
-                        onChange={(option) => handleOptionChange(option, 'genre')}
-                        styles={customSelectStyles}
-                        options={filtersData.genres}
-                        value={filtersData.genres.find((genre) => genre.value === filters[mediaType].with_genres)}
-                    />
-                    <Select
-                        isSearchable={false}
-                        onChange={(option) => handleOptionChange(option, 'time')}
-                        styles={customSelectStyles}
-                        options={filtersData.time}
-                        value={filtersData.time.find((year) => year.value === filters[mediaType].year)}
-                    />
-                    <Select
-                        isSearchable={false}
-                        onChange={(option) => handleOptionChange(option, 'sort')}
-                        styles={customSelectStyles}
-                        options={filtersData.sort}
-                        value={filtersData.sort.find((sortValue) => sortValue.value === filters[mediaType].sort_by)}
-                    />
+        <>
+            <Helmet>
+                <title>{`Explore - ${title}`}</title>
+                <meta name="description" content={slogan} />
+                <meta property="og:title" content={`Explore - ${title}`} />
+                <meta property="og:image" content={exploreImg} />
+                <meta property="og:site_name" content={siteName} />
+                <meta property="og:url" content={window.location.href} />
+                <meta property="og:description" content={slogan} />
+            </Helmet>
+            <div className={styles.explore}>
+                <div className={styles.actions}>
+                    <button
+                        onClick={() => handleMediaTypeChange('movie')}
+                        className={clsx(styles.actionBtn, {
+                            [styles.active]: mediaType === 'movie',
+                        })}
+                    >
+                        Movies
+                    </button>
+                    <button
+                        onClick={() => handleMediaTypeChange('tv')}
+                        className={clsx(styles.actionBtn, {
+                            [styles.active]: mediaType === 'tv',
+                        })}
+                    >
+                        TV Show
+                    </button>
                 </div>
-            )}
-            {isLoading && <Loading />}
-            {isSuccess && (
-                <MovieListInfinite
-                    data={result}
-                    mediaType={mediaType}
-                    hasMore={hasNextPage}
-                    fetchMore={fetchNextPage}
-                />
-            )}
-        </div>
+                {filtersData && (
+                    <div className={styles.filters}>
+                        <Select
+                            isSearchable={false}
+                            onChange={(option) => handleOptionChange(option, 'genre')}
+                            styles={customSelectStyles}
+                            options={filtersData.genres}
+                            value={filtersData.genres.find((genre) => genre.value === filters[mediaType].with_genres)}
+                        />
+                        <Select
+                            isSearchable={false}
+                            onChange={(option) => handleOptionChange(option, 'time')}
+                            styles={customSelectStyles}
+                            options={filtersData.time}
+                            value={filtersData.time.find((year) => year.value === filters[mediaType].year)}
+                        />
+                        <Select
+                            isSearchable={false}
+                            onChange={(option) => handleOptionChange(option, 'sort')}
+                            styles={customSelectStyles}
+                            options={filtersData.sort}
+                            value={filtersData.sort.find((sortValue) => sortValue.value === filters[mediaType].sort_by)}
+                        />
+                    </div>
+                )}
+                {isLoading && <Loading />}
+                {isSuccess && (
+                    <MovieListInfinite
+                        data={result}
+                        mediaType={mediaType}
+                        hasMore={hasNextPage}
+                        fetchMore={fetchNextPage}
+                    />
+                )}
+            </div>
+        </>
     );
 }
 

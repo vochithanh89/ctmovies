@@ -2,7 +2,7 @@ import styles from './Watch.module.scss';
 import { useLocation, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import clsx from 'clsx';
 import { useEffect, useMemo, useState } from 'react';
-import { embedSrc } from '@/components/constants/constants';
+import { embedSrc, siteName, slogan, title } from '@/components/constants/constants';
 import SkeletonLoading from '@/components/shared/SkeletonLoading/SkeletonLoading';
 import Similar from '@/components/Similar/Similar';
 import useGetData from '@/hooks/useGetData';
@@ -12,6 +12,7 @@ import { settingsSelector } from '@/components/redux/selectors';
 import SeasonEpisode from '@/components/SeasonEpisode/SeasonEpisode';
 import { addMovieToHistory } from '@/utils/historyLocal';
 import Comments from '@/components/Comments/Comments';
+import { Helmet } from 'react-helmet';
 
 function Watch() {
     const navigate = useNavigate();
@@ -99,42 +100,64 @@ function Watch() {
     };
 
     return (
-        <div className={styles.watch}>
-            <div className={styles.watchPlace}>
-                {iframeLoading && <SkeletonLoading className={styles.watchIframe} height="auto" />}
-                <iframe
-                    title={id}
-                    src={embedSrc(mediaType, id, season, episode)}
-                    allowFullScreen="allowfullscreen"
-                    frameBorder="0"
-                    className={clsx(styles.watchIframe, {
-                        [styles.hide]: iframeLoading,
-                    })}
-                    onLoad={handleIframeLoaded}
-                ></iframe>
-
-                <div className={styles.details}>
-                    {isLoading && renderSkeletonLoading()}
-                    {isSuccess && renderDetails()}
-                </div>
-
-                <div className={styles.comments}>
-                    <Comments movieId={id} mediaType={mediaType} season={season} episode={episode} />
-                </div>
-            </div>
-            <div className={styles.rightSidebar}>
-                {mediaType === 'movie' && <Similar mediaType={mediaType} id={id} />}
-                {mediaType === 'tv' && seasons && (
-                    <SeasonEpisode
-                        id={id}
-                        seasons={seasons}
-                        currentSeason={season}
-                        currentEpisode={episode}
-                        language={language}
-                    />
+        <>
+            <Helmet>
+                {mediaType === 'tv' ? (
+                    <title>{movieName ? `${movieName} Season ${season} Episode ${episode} - ${title}` : title}</title>
+                ) : (
+                    <title>{movieName ? `${movieName} - ${title}` : title}</title>
                 )}
+                <meta name="description" content={slogan} />
+                {mediaType === 'tv' ? (
+                    <meta
+                        property="og:title"
+                        content={movieName ? `${movieName} Season ${season} Episode ${episode} - ${title}` : title}
+                    />
+                ) : (
+                    <meta property="og:title" content={movieName ? `${movieName} - ${title}` : title} />
+                )}
+                <meta property="og:image" content={data.poster_path} />
+                <meta property="og:site_name" content={siteName} />
+                <meta property="og:url" content={window.location.href} />
+                <meta property="og:description" content={slogan} />
+            </Helmet>
+            <div className={styles.watch}>
+                <div className={styles.watchPlace}>
+                    {iframeLoading && <SkeletonLoading className={styles.watchIframe} height="auto" />}
+                    <iframe
+                        title={id}
+                        src={embedSrc(mediaType, id, season, episode)}
+                        allowFullScreen="allowfullscreen"
+                        frameBorder="0"
+                        className={clsx(styles.watchIframe, {
+                            [styles.hide]: iframeLoading,
+                        })}
+                        onLoad={handleIframeLoaded}
+                    ></iframe>
+
+                    <div className={styles.details}>
+                        {isLoading && renderSkeletonLoading()}
+                        {isSuccess && renderDetails()}
+                    </div>
+
+                    <div className={styles.comments}>
+                        <Comments movieId={id} mediaType={mediaType} season={season} episode={episode} />
+                    </div>
+                </div>
+                <div className={styles.rightSidebar}>
+                    {mediaType === 'movie' && <Similar mediaType={mediaType} id={id} />}
+                    {mediaType === 'tv' && seasons && (
+                        <SeasonEpisode
+                            id={id}
+                            seasons={seasons}
+                            currentSeason={season}
+                            currentEpisode={episode}
+                            language={language}
+                        />
+                    )}
+                </div>
             </div>
-        </div>
+        </>
     );
 }
 
