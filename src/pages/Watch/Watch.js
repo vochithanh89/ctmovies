@@ -2,7 +2,7 @@ import styles from './Watch.module.scss';
 import { useLocation, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import clsx from 'clsx';
 import { useEffect, useMemo, useState } from 'react';
-import { embedSrc, siteName, slogan, title } from '@/components/constants/constants';
+import { embedSrc, imgUrlFull, siteName, slogan, title } from '@/components/constants/constants';
 import SkeletonLoading from '@/components/shared/SkeletonLoading/SkeletonLoading';
 import Similar from '@/components/Similar/Similar';
 import useGetData from '@/hooks/useGetData';
@@ -116,7 +116,7 @@ function Watch() {
                 ) : (
                     <meta property="og:title" content={movieName ? `${movieName} - ${title}` : title} />
                 )}
-                <meta property="og:image" content={data?.poster_path} />
+                <meta property="og:image" content={imgUrlFull(data?.poster_path)} />
                 <meta property="og:site_name" content={siteName} />
                 <meta property="og:url" content={window.location.href} />
                 <meta property="og:description" content={slogan} />
