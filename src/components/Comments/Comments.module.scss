@@ -155,6 +155,9 @@
 
                     button {
                         color: $textColor1;
+                        &:disabled {
+                            cursor: default;
+                        }
                     }
 
                     svg {

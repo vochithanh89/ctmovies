@@ -112,6 +112,7 @@ function CommentList({ roomId }) {
                                                     handleSetCurrentCommentId(comment.id);
                                                     e.stopPropagation();
                                                 }}
+                                                disabled={!user}
                                             >
                                                 <BsThreeDots />
                                             </button>
