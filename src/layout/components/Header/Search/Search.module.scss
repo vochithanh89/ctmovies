@@ -116,6 +116,39 @@
     }
 }
 
+.search.forSearchPage {
+    margin: auto;
+    width: 80vw;
+
+    @include desktop {
+        display: none;
+    }
+
+    @include tablet {
+        display: none;
+    }
+
+    @include mobile {
+        display: block;
+    }
+
+    .searchInputContainer {
+        position: relative;
+        width: 100%;
+
+        @include mobile {
+            display: initial;
+        }
+    }
+
+    .searchResult {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: calc(100% + 1.6rem);
+    }
+}
+
 @keyframes loading {
     from {
         transform: translateY(-50%) rotate(0);

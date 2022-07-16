@@ -8,8 +8,11 @@ import FullLayout from '../layout/FullLayout';
 import Home from '../pages/Home/Home';
 import Watch from '@/pages/Watch/Watch';
 import WatchLayout from '@/layout/WatchLayout';
+import NotFound from '@/pages/NotFound/NotFound';
+import Search from '@/pages/Search/Search';
 
 export const publicRoutes = [
+    { path: '/*', page: NotFound, layout: FullLayout },
     { path: '/', page: Home, layout: MainLayout },
     {
         path: '/explore',
@@ -20,6 +23,11 @@ export const publicRoutes = [
         path: '/history',
         page: History,
         layout: WithBarLayout,
+    },
+    {
+        path: '/search',
+        page: Search,
+        layout: WatchLayout,
     },
     {
         path: '/:mediaType/:id',

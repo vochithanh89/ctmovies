@@ -7,7 +7,7 @@ import useDebounce from '@/hooks/useDebounce';
 import { getSearchInput } from '@/utils/api';
 import SearchResult from './SearchResult';
 
-function SearchInput() {
+function SearchInput({ type }) {
     const [isLoading, setIsLoading] = useState(false);
     const [result, setResult] = useState([]);
     const [searchValue, setSearchValue] = useState('');
@@ -51,7 +51,11 @@ function SearchInput() {
     };
 
     return (
-        <div className={styles.search}>
+        <div
+            className={clsx(styles.search, {
+                [styles.forSearchPage]: type === 'searchPage',
+            })}
+        >
             <div className={styles.searchInputContainer}>
                 <input
                     value={searchValue}

@@ -1,0 +1,7 @@
+@import '../../components/styles/mixin';
+@import '../../components/styles/variables';
+
+.search {
+    width: 100%;
+    height: calc(100vh - $headerHeight);
+}
