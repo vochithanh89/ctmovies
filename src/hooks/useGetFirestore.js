@@ -19,7 +19,8 @@ function useGetFirestore(collectionString, condition, sort) {
             setData(data);
         });
         return () => unsubcribed();
-    }, [collectionString, condition, sort]);
+        // eslint-disable-next-line
+    }, []);
 
     return data;
 }
