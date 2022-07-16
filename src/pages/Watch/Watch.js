@@ -116,7 +116,7 @@ function Watch() {
                 ) : (
                     <meta property="og:title" content={movieName ? `${movieName} - ${title}` : title} />
                 )}
-                <meta property="og:image" content={data.poster_path} />
+                <meta property="og:image" content={data?.poster_path} />
                 <meta property="og:site_name" content={siteName} />
                 <meta property="og:url" content={window.location.href} />
                 <meta property="og:description" content={slogan} />
