@@ -1,7 +1,7 @@
 .image {
     object-fit: cover;
     aspect-ratio: 10/16;
-    animation: fade 0.3s ease-in;
+    animation: fade 0.2s ease-in-out;
 }
 
 .image.br {
@@ -10,11 +10,11 @@
 
 @keyframes fade {
     from {
-        transform: scale(0.8);
+        filter: blur(2px);
         opacity: 0;
     }
     to {
+        filter: blur(0);
         opacity: 1;
-        transform: scale(1);
     }
 }
