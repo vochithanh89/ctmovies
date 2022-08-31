@@ -5,7 +5,7 @@ import Image from '../shared/Image/Image';
 import ImageLazy from '../shared/Image/ImageLazy';
 import styles from './MovieCard.module.scss';
 
-function MovieCard({ type, className, mediaType, movieName, movieId, posterUrl, pathName, path }) {
+function MovieCard({ type = 'default', className, mediaType, movieName, movieId, posterUrl, pathName, path }) {
     return (
         <div
             className={clsx(styles.movieCard, className, {
@@ -13,10 +13,14 @@ function MovieCard({ type, className, mediaType, movieName, movieId, posterUrl, 
             })}
         >
             <Link to={`/${mediaType}/${movieId}`} className={styles.detailPath} title={movieName}>
-                {type === 'background' ? (
+                {type === 'background' && (
                     <Image className={styles.poster} type="background" src={imgUrl(posterUrl)} alt={movieName} />
-                ) : (
+                )}
+                {type === 'default' && (
                     <ImageLazy className={styles.poster} type="poster" src={imgUrl(posterUrl)} alt={movieName} />
+                )}
+                {type === 'slider' && (
+                    <Image className={styles.poster} type="poster" src={imgUrl(posterUrl)} alt={movieName} />
                 )}
 
                 <h2 className={styles.movieName}>{movieName}</h2>
